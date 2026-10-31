@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eastside Lowdown | Nashville Gypsy Jazz Quartet</title>
+  <meta name="description" content="Eastside Lowdown is a Nashville-based gypsy jazz quartet playing the music of Django Reinhardt, swing era classics, and original tunes." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <span class="brand">Eastside Lowdown</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#members">Band</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Booking</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Eastside Lowdown</h1>
+      <p class="tagline">Nashville gypsy jazz &mdash; swing, Django, and originals</p>
+      <div class="cta-row">
+        <a href="#booking" class="btn primary">Book Us</a>
+        <a href="#about" class="btn">Learn More</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About the Band</h2>
+      <p class="section-sub">East Nashville&rsquo;s own gypsy jazz quartet</p>
+      <p>
+        Eastside Lowdown plays swing era tunes, specializing in the music of Django Reinhardt.
+        We also bring a repertoire of contemporary music played in the swing idiom, as well as
+        original tunes. We&rsquo;re a quartet available for private events and large public events alike.
+      </p>
+      <p>
+        Eastside Lowdown was born from the Nashville Django Jam and calls East Nashville home.
+      </p>
+    </div>
+  </section>
+
+  <section id="members">
+    <div class="container">
+      <h2>The Quartet</h2>
+      <p class="section-sub">Four strings, four voices</p>
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="name">James Masanotti</div>
+          <div class="instrument">Violin</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Zach Cohen</div>
+          <div class="instrument">Guitar</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Michael Ferral</div>
+          <div class="instrument">Guitar</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Charlie Chadwick</div>
+          <div class="instrument">Bass</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="section-sub">From the stage and under the trees</p>
+      <div class="gallery">
+        <img src="images/gallery-1.jpg" alt="Eastside Lowdown playing outdoors at golden hour" loading="lazy" />
+        <img src="images/gallery-2.jpg" alt="Guitar and bass players performing outdoors" loading="lazy" />
+        <img src="images/gallery-3.jpg" alt="Full quartet performing under the trees" loading="lazy" />
+        <img src="images/gallery-4.jpg" alt="Black and white photo of guitar and bass duo" loading="lazy" />
+        <img src="images/gallery-5.jpg" alt="Eastside Lowdown performing on stage with purple lighting" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="container booking-wrap">
+      <h2>Booking</h2>
+      <p class="section-sub">Private events, public events, weddings, and parties</p>
+
+      <div class="booking-placeholder">
+        Booking form coming soon &mdash; check back shortly, or reach out directly.
+      </div>
+
+      <iframe
+        class="form-embed"
+        style="display:none"
+        src="YOUR_GOOGLE_FORM_EMBED_URL_HERE"
+        title="Eastside Lowdown booking inquiry form"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        Loading booking form&hellip;
+      </iframe>
+
+      <p class="booking-fallback" style="display:none">
+        Having trouble with the form?
+        <a href="YOUR_GOOGLE_FORM_VIEW_URL_HERE" target="_blank" rel="noopener">
+          Open it in a new tab
+        </a>.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Eastside Lowdown &middot; East Nashville, TN</p>
+    </div>
+  </footer>
+
+  <!--
+    Background music: drop your audio file at audio/theme.mp3 (or update the
+    <source> src below to match your filename). Browsers block autoplay with
+    sound, so this button lets visitors opt in to play/pause the track.
+  -->
+  <audio id="bg-audio" loop preload="none">
+    <source src="audio/theme.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false">
+    <span class="note">&#9834;</span>
+    <span id="music-toggle-label">Play Music</span>
+  </button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const audio = document.getElementById('bg-audio');
+    const toggleBtn = document.getElementById('music-toggle');
+    const toggleLabel = document.getElementById('music-toggle-label');
+
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          toggleBtn.setAttribute('aria-pressed', 'true');
+          toggleLabel.textContent = 'Pause Music';
+        }).catch(() => {
+          toggleLabel.textContent = 'Audio unavailable';
+        });
+      } else {
+        audio.pause();
+        toggleBtn.setAttribute('aria-pressed', 'false');
+        toggleLabel.textContent = 'Play Music';
+      }
+    });
+  </script>
+
+</body>
+</html>
